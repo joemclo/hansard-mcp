@@ -1,0 +1,68 @@
+{
+  "name": "hansard-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server for UK Parliament Hansard API",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "hansard-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "debug": "node dist/debug-hansard.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest",
+    "prepare": "npm run build",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "generate:api": "openapi --input https://api.parliament.uk/swagger/docs/v1 --output ./src/generated --client node"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "commander": "^11.1.0",
+    "node-fetch": "^2.6.12",
+    "winston": "^3.11.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.0.0",
+    "@types/node-fetch": "^2.6.12",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-import-resolver-typescript": "^4.3.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0",
+    "openapi-typescript-codegen": "^0.27.0",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "hansard",
+    "parliament",
+    "uk",
+    "mcp",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT"
+}
